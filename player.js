@@ -1,6 +1,7 @@
 const Player = function(name){
   this.name = name;
   this.cards = [];
+  this.turn = false;
 }
 
 
@@ -26,6 +27,16 @@ Player.prototype.playCardStrength = function () {
 Player.prototype.playCardAgility = function () {
   let card = this.cards.pop();
   return card.agility;
+
+};
+
+Player.prototype.go = function () {
+  this.turn = true;
+
+};
+
+Player.prototype.notGo = function () {
+  this.turn = false;
 
 };
 

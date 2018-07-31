@@ -4,7 +4,7 @@ const Card = require("../card.js");
 
 
 
-xdescribe("Player", function(){
+describe("Player", function(){
   let player;
   beforeEach(function(){
     player = new Player("player1");
@@ -33,26 +33,37 @@ xdescribe("Player", function(){
     assert.deepStrictEqual(player.cards.length, 0);
   });
 
-  it("can play cards strength", function(){
-    card = new Card("Superman", 6, 9, 7);
-    player.addCard(card);
-    result = player.playCardStrength();
-    assert.deepStrictEqual(result, 9);
+  it("should have a turn", function(){
+    player.go();
+    assert.strictEqual(player.turn,true);
   });
 
-  it("can play cards agility", function(){
-    card = new Card("Superman", 6, 9, 7);
-    player.addCard(card);
-    result = player.playCardAgility();
-    assert.deepStrictEqual(result, 7);
+  it("should not have a turn", function(){
+    player.notGo();
+    assert.strictEqual(player.turn,false);
   });
 
-  it("can play cards intelligence", function(){
-    card = new Card("Superman", 6, 9, 7);
-    player.addCard(card);
-    result = player.playCardIntelligence();
-    assert.deepStrictEqual(result, 6);
-  });
+   it("can play cards strength", function(){
+     card = new Card("Superman", 6, 9, 7);
+     player.addCard(card);
+     result = player.chooseAttribute();
+     assert.deepStrictEqual(result, "strength");
+   });
+  
+  // it("can play cards agility", function(){
+  //   card = new Card("Superman", 6, 9, 10);
+  //   player.addCard(card);
+  //   result = player.chooseAttribute(card);
+  //   assert.deepStrictEqual(result, "agility");
+  // });
+  //
+  // it("can play cards intelligence", function(){
+  //   card = new Card("Superman", 10, 9, 7);
+  //   player.addCard(card);
+  //   result = player.chooseAttribute(card);
+  //   assert.deepStrictEqual(result, "intelligence");
+  // });
+
 
 
 });

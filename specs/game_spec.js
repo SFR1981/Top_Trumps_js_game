@@ -52,5 +52,11 @@ it("should compare play for intelligence",function(){
 });
 
 
+it("can create deck", function(){
+    game.deck();
+    assert.strictEqual(game.cards.length,6)
+  });
+
+
 
 });
