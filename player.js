@@ -13,4 +13,21 @@ Player.prototype.loseCard = function (card) {
   if (index !== -1) this.cards.splice(index, 1);
 };
 
+Player.prototype.playCardIntelligence = function () {
+  let card = this.cards.pop();
+  return card.intelligence;
+
+};
+Player.prototype.playCardStrength = function () {
+  let card = this.cards.pop();
+  return card.strength;
+
+};
+Player.prototype.playCardAgility = function () {
+  let card = this.cards.pop();
+  return card.agility;
+
+};
+
+
 module.exports = Player;

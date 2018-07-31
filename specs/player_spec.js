@@ -31,7 +31,28 @@ describe("Player", function(){
     player.addCard(card);
     player.loseCard(card);
     assert.deepStrictEqual(player.cards.length, 0);
-  })
+  });
+
+  it("can play cards strength", function(){
+    card = new Card("Superman", 6, 9, 7);
+    player.addCard(card);
+    result = player.playCardStrength();
+    assert.deepStrictEqual(result, 9);
+  });
+
+  it("can play cards agility", function(){
+    card = new Card("Superman", 6, 9, 7);
+    player.addCard(card);
+    result = player.playCardAgility();
+    assert.deepStrictEqual(result, 7);
+  });
+
+  it("can play cards intelligence", function(){
+    card = new Card("Superman", 6, 9, 7);
+    player.addCard(card);
+    result = player.playCardIntelligence();
+    assert.deepStrictEqual(result, 6);
+  });
 
 
 });
