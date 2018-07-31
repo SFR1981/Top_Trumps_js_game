@@ -72,7 +72,14 @@ it("can play a round", function(){
   game.player1.go();
   game.play();
   assert.strictEqual(game.player1.cards.length, 2);
+  assert.strictEqual(game.player1.turn, true);
 
+})
+
+it("can play a full game", function(){
+  game.playGame();
+  assert.strictEqual(game.player2.cards.length, 6);
+  assert.strictEqual(game.player1.cards.length, 0);
 })
 
 
