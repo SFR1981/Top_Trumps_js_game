@@ -46,23 +46,23 @@ describe("Player", function(){
    it("can play cards strength", function(){
      card = new Card("Superman", 6, 9, 7);
      player.addCard(card);
-     result = player.chooseAttribute();
-     assert.deepStrictEqual(result, "strength");
+     result = player.chooseAttribute(card);
+     assert.strictEqual(result, "strength");
    });
-  
-  // it("can play cards agility", function(){
-  //   card = new Card("Superman", 6, 9, 10);
-  //   player.addCard(card);
-  //   result = player.chooseAttribute(card);
-  //   assert.deepStrictEqual(result, "agility");
-  // });
-  //
-  // it("can play cards intelligence", function(){
-  //   card = new Card("Superman", 10, 9, 7);
-  //   player.addCard(card);
-  //   result = player.chooseAttribute(card);
-  //   assert.deepStrictEqual(result, "intelligence");
-  // });
+
+   it("can play cards agility", function(){
+    card = new Card("Superman", 6, 9, 10);
+    player.addCard(card);
+    result = player.chooseAttribute(card);
+    assert.deepStrictEqual(result, "agility");
+  });
+
+  it("can play cards intelligence", function(){
+    card = new Card("Superman", 10, 9, 7);
+    player.addCard(card);
+    result = player.chooseAttribute(card);
+    assert.deepStrictEqual(result, "intelligence");
+  });
 
 
 

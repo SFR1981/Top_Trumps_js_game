@@ -1,3 +1,5 @@
+const Card = require("./card.js");
+
 const Player = function(name){
   this.name = name;
   this.cards = [];
@@ -39,6 +41,18 @@ Player.prototype.notGo = function () {
   this.turn = false;
 
 };
+
+Player.prototype.chooseAttribute = function (card) {
+  attribute = "strength";
+  if (card[attribute] < card.intelligence){
+    attribute = "intelligence";
+  }
+  if(card[attribute] < card.agility){
+    attribute = "agility";
+  }
+  return attribute;
+};
+
 
 
 module.exports = Player;
