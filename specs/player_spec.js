@@ -24,6 +24,13 @@ describe("Player", function(){
     card = new Card("Superman", 6, 9, 7);
     player.addCard(card);
     assert.deepStrictEqual(player.cards.length, 1);
+  });
+
+  it("should lose a card", function(){
+    card = new Card("Superman", 6, 9, 7);
+    player.addCard(card);
+    player.loseCard(card);
+    assert.deepStrictEqual(player.cards.length, 0);
   })
 
 
