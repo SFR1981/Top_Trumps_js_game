@@ -4,7 +4,7 @@ const Card = require("../card.js");
 
 
 
-describe("Player", function(){
+xdescribe("Player", function(){
   let player;
   beforeEach(function(){
     player = new Player("player1");
