@@ -33,5 +33,10 @@ it("should deal cards", function(){
   assert.strictEqual(game.player1.cards.length, 1);
 })
 
+it("should compare play",function(){
+  game.compareCardsForStrength(card2, card1)
+  assert.strictEqual( game.player1.cards.length, 2);
+
+});
 
 });
