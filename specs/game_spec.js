@@ -54,9 +54,26 @@ it("should compare play for intelligence",function(){
 
 it("can create deck", function(){
     game.deck();
-    assert.strictEqual(game.cards.length,6)
+    assert.strictEqual(game.cards.length,6);
   });
 
+it("can deal all cards", function(){
+
+  game.dealAll();
+  assert.strictEqual(game.cards.length,0);
+  assert.strictEqual(game.player1.cards.length,3);
+  assert.strictEqual(game.player2.cards.length,3);
+
+})
+
+it("can play a round", function(){
+  game.player1.addCard(card4);
+  game.player2.addCard(card6);
+  game.player1.go();
+  game.play();
+  assert.strictEqual(game.player1.cards.length, 2);
+
+})
 
 
 });

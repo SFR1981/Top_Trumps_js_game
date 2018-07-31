@@ -38,25 +38,32 @@ Game.prototype.compareCards = function (play1, play2, attribute) {
   this.cards.push(play2);
   if (play1[attribute] === play2[attribute]){
 
-     this.player1.addCard(play1);
-     this.player1.addCard(play2);
+     this.dealCardPlayer1();
+     this.dealCardPlayer1();
+     this.player1.go();
+     this.player2.notGo();
+     console.log( "player 2 wins this turn");
+
 
   } else if (play1[attribute] > play2[attribute]){
 
-     this.player1.addCard(play1);
-     this.player1.addCard(play2);
+    this.dealCardPlayer1();
+    this.dealCardPlayer1();
+    this.player1.go();
+    this.player2.notGo();
+    console.log( "player 1 wins this turn");
   } else {
 
-     this.player2.addCard(play1);
-     this.player2.addCard(play2);
+    this.dealCardPlayer2();
+    this.dealCardPlayer2();
+    this.player1.notGo();
+    this.player2.go();
+    console.log( "player 2 wins this turn");
   }
+
 };
 
-//Game.prototype.methodName = function (player) {
-//calls player1 and player 2 to pop into two card variables , and one chooses attribute, as result of a check of whos go it is.
-//takes two cards and an attribute
 
-//};
 
 Game.prototype.deck = function () {
   this.cards.push(card1);
@@ -69,6 +76,40 @@ Game.prototype.deck = function () {
 
 };
 
+Game.prototype.dealAll = function () {
+  this.deck();
+  this.dealCardPlayer1();
+  this.dealCardPlayer2();
+  this.dealCardPlayer1();
+  this.dealCardPlayer2();
+  this.dealCardPlayer1();
+  this.dealCardPlayer2();
+
+};
+
+Game.prototype.play = function () {
+  let card1  = this.player1.cards.pop();
+   let card2 = this.player2.cards.pop();
+if (this.player1.turn === true) {
+  var attribute = this.player1.chooseAttribute(card1);
+} else {
+  var attribute = this.player2.chooseAttribute(card2);
+}
+  this.compareCards(card1, card2, attribute );
+};
+
+
+
+/*
+game:
+player1.go();
+
+play();
+
+
+
+
+*/
 
 
 
