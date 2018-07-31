@@ -33,10 +33,24 @@ it("should deal cards", function(){
   assert.strictEqual(game.player1.cards.length, 1);
 })
 
-it("should compare play",function(){
+it("should compare play for strength",function(){
   game.compareCardsForStrength(card2, card1)
   assert.strictEqual( game.player1.cards.length, 2);
 
 });
+
+it("should compare play for agility",function(){
+  game.compareCardsForAgility(card4, card1)
+  assert.strictEqual( game.player1.cards.length, 2);
+
+});
+
+it("should compare play for intelligence",function(){
+  game.compareCardsForIntelligence(card2, card6)
+  assert.strictEqual( game.player2.cards.length, 2);
+
+});
+
+
 
 });

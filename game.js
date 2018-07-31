@@ -45,5 +45,41 @@ Game.prototype.compareCardsForStrength = function (play1, play2) {
   }
 };
 
+Game.prototype.compareCardsForAgility = function (play1, play2) {
+  this.cards.push(play1);
+  this.cards.push(play2);
+  if (play1.agility === play2.agility){
+
+     this.player1.addCard(play1);
+     this.player1.addCard(play2);
+  } else if (play1.agility > play2.agility){
+
+     this.player1.addCard(play1);
+     this.player1.addCard(play2);
+  } else {
+
+     this.player2.addCard(play1);
+     this.player2.addCard(play2);
+  }
+};
+
+Game.prototype.compareCardsForIntelligence = function (play1, play2) {
+  this.cards.push(play1);
+  this.cards.push(play2);
+  if (play1.intelligence === play2.intelligence){
+
+     this.player1.addCard(play1);
+     this.player1.addCard(play2);
+  } else if (play1.intelligence > play2.intelligence){
+
+     this.player1.addCard(play1);
+     this.player1.addCard(play2);
+  } else {
+
+     this.player2.addCard(play1);
+     this.player2.addCard(play2);
+  }
+};
+
 
 module.exports = Game;
